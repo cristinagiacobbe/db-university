@@ -5,6 +5,8 @@ Dopo aver creato un nuovo database nel vostro phpMyAdmin e aver importato lo sch
 DESCRIBE `students`;
 SELECT * FROM `students`;
 SELECT * FROM `students` WHERE `date_of_birth` LIKE "1990%";
+## BEST ALTERNATIVE
+SELECT * FROM `students` WHERE YEAR(`date_of_birth`) = 1990;
 
 2. Selezionare tutti i corsi che valgono più di 10 crediti (479)
 
@@ -16,6 +18,8 @@ SELECT * FROM `courses` WHERE `cfu`>10;
 
 SELECT * FROM `students` 
 WHERE `date_of_birth`> '1994%';
+## BEST ALTERNATIVE
+SELECT * FROM `students` WHERE YEAR(CURRENT_DATE) - YEAR(`date_of_birth`) > 30
 
 4. Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di laurea (286)
 
@@ -24,6 +28,8 @@ SELECT * FROM `courses` WHERE `period`= 'I semestre' AND `year`= 1;
 5. Selezionare tutti gli appelli d'esame che avvengono nel pomeriggio (dopo le 14) del 20/06/2020 (21)
 
 SELECT * FROM `exams` WHERE `hour`> '14%' AND `date`= '2020-06-20';
+## BEST ALTERNATIVE
+SELECT * FROM `exams` WHERE `date`= "2020-06-20" AND hour(`hour`)>= 14;
 
 6. Selezionare tutti i corsi di laurea magistrale (38)
 
