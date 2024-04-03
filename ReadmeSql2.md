@@ -91,4 +91,4 @@ ON `exam_student`.`exam_id` = `exams`.`id`
 INNER JOIN `courses`
 ON `exams`.`course_id` = `courses`.`id`
 COUNT(`students`.`id`)
-GROUP BY `students`.`couerse_exam_name`
+GROUP BY `students`.`course_exam_name`
